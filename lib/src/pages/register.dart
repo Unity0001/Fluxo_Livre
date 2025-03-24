@@ -1,3 +1,4 @@
+import 'package:app_fluxolivrep/src/widgets/button.dart';
 import 'package:app_fluxolivrep/src/widgets/input_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -16,18 +17,18 @@ class _RegisterPageState extends State<RegisterPage> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/img_fundo.png'),
+            image: AssetImage('assets/images/blue.png'),
             fit: BoxFit.cover,
           ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(26.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const SizedBox(
-                height: 200,
-                width: 200,
+                height: 150,
+                width: 150,
                 child: Image(image: AssetImage('assets/images/et.png')),
               ),
               const SizedBox(height: 30),
@@ -39,7 +40,30 @@ class _RegisterPageState extends State<RegisterPage> {
                 hint: 'Senha',
                 obscure: true,
               ),
-              InputWidget(icon: Icons.lock_outline, hint: 'Confirmar senha'),
+              InputWidget(
+                icon: Icons.lock_outline,
+                hint: 'Confirmar senha',
+                obscure: true,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ButtonWidget(
+                    label: 'Cadastrar',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/home');
+                    },
+                    size: Size(200, 75),
+                  ),
+                  ButtonWidget(
+                    label: 'Cancelar',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/');
+                    },
+                    size: Size(200, 75),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

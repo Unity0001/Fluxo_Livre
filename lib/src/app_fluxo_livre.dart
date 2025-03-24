@@ -12,9 +12,9 @@ class AppFluxolivre extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'AppFluxoLivre',
       routes: {
-        '/' : (_) => RegisterPage(),
+        '/' : (_) => LoginPage(),
         '/home' : (_) => HomePage(),
-        '/register' : (_) => LoginPage(),
+        '/register' : (_) => RegisterPage(),
       },
     );
   }

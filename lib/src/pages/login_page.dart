@@ -1,3 +1,4 @@
+import 'package:app_fluxolivrep/src/widgets/button.dart';
 import 'package:app_fluxolivrep/src/widgets/input_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -33,35 +34,20 @@ class LoginPage extends StatelessWidget {
                 obscure: true,
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFAFAE24),
-                  minimumSize: Size(double.infinity, 60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                ),
+              ButtonWidget(
+                label: 'Acessar',
                 onPressed: () {
                   Navigator.of(context).pushNamed('/home');
                 },
-                child: const Text(
-                  'Acessar',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF031C5F),
-                  ),
-                ),
+                size: Size(double.infinity, 60),
               ),
               const SizedBox(height: 15),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushNamed('/home');
+              ButtonWidget(
+                label: 'Novo Usuario',
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/register');
                 },
-                child: const Text(
-                  'Novo Usuário',
-                  style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 20),
-                ),
+                size: Size(double.infinity, 60),
               ),
             ],
           ),

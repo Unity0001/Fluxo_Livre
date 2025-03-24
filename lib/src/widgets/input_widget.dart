@@ -12,30 +12,39 @@ class InputWidget extends StatelessWidget {
     this.icon,
     required this.hint,
     this.obscure = false,
-    this.inputType = TextInputType.emailAddress,
+    this.inputType = TextInputType.text,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     var inputFormatters = <TextInputFormatter>[];
-    if (!obscure) {
-      inputFormatters.add(MaskTextInputFormatter(mask: '###.###.###-##'));
-    } else {
-      inputFormatters.add(FilteringTextInputFormatter.digitsOnly);
+
+    if (hint.toLowerCase().contains("cpf")) {
+      inputFormatters.add(
+        MaskTextInputFormatter(
+          mask: '###.###.###-##',
+          filter: {"#": RegExp(r'[0-9]')},
+        ),
+      );
+    } else if (obscure) {
+      inputFormatters.add(
+        FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9]')),
+      );
     }
+
     return TextField(
       keyboardType: inputType,
       inputFormatters: inputFormatters,
       decoration: InputDecoration(
-        icon: Icon(icon, color: Color(0xFFFFFFFF)),
+        icon: Icon(icon, color: Colors.white),
         hintText: hint,
-        hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+        hintStyle: TextStyle(color: Colors.white),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.pinkAccent),
         ),
       ),
-      style: TextStyle(color: Color(0xFFFFFFFF)),
+      style: TextStyle(color: Colors.white),
       obscureText: obscure,
     );
   }

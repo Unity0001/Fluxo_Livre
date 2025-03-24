@@ -1,3 +1,4 @@
+import 'package:app_fluxolivrep/src/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
             Text(
               isFull ? 'Acesso Bloqueado' : 'Acesso Liberado',
               style: TextStyle(
-                color: isFull ? Color(0xFFFF0000) : Color(0xFFFFFFFF),
+                color: isFull ? Colors.red : Colors.white,
                 fontSize: 40,
                 fontWeight: FontWeight.w500,
               ),
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             Text(
               count.toString(),
               style: TextStyle(
-                color: Color(0xFFFFFFFF),
+                color: Colors.white,
                 fontSize: 60,
                 fontWeight: FontWeight.w500,
               ),
@@ -59,44 +60,14 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        isEmpty ? Color(0xAAAFAE24) : Color(0xFFAFAE24),
-                    fixedSize: const Size(110, 75),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                  ),
-                  onPressed: isEmpty ? () {} : decrement,
-                  child: const Text(
-                    'Sair',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color(0xFF031CF5),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                ButtonWidget(
+                  label: 'Sair',
+                  onPressed: isEmpty ? null : decrement,
                 ),
                 const SizedBox(width: 40),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        isFull ? Color(0xAAAFAE24) : Color(0xFFAFAE24),
-                    fixedSize: const Size(110, 75),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                  ),
-                  onPressed: isFull ? () {} : incremented,
-                  child: const Text(
-                    'Entrar',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color(0xFF031CF5),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                ButtonWidget(
+                  label: 'Entrar',
+                  onPressed: isFull ? null : incremented,
                 ),
               ],
             ),
