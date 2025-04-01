@@ -1,6 +1,6 @@
 import 'package:app_fluxolivrep/src/pages/home_page.dart';
 import 'package:app_fluxolivrep/src/pages/login_page.dart';
-import 'package:app_fluxolivrep/src/pages/register.dart';
+import 'package:app_fluxolivrep/src/pages/cad_usuario_page.dart';
 import 'package:flutter/material.dart';
 
 class AppFluxolivre extends StatelessWidget {
@@ -14,7 +14,7 @@ class AppFluxolivre extends StatelessWidget {
       routes: {
         '/' : (_) => LoginPage(),
         '/home' : (_) => HomePage(),
-        '/register' : (_) => RegisterPage(),
+        '/register' : (_) => CadUsuarioPage(),
       },
     );
   }

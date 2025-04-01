@@ -1,5 +1,3 @@
-import 'package:app_fluxolivrep/src/widgets/button.dart';
-import 'package:app_fluxolivrep/src/widgets/input_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -12,7 +10,7 @@ class LoginPage extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/img_fundo.png'),
+            image: AssetImage('assets/images/img_fundologin.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -27,27 +25,26 @@ class LoginPage extends StatelessWidget {
                 child: Image(image: AssetImage('assets/images/et.png')),
               ),
               const SizedBox(height: 30),
-              InputWidget(icon: Icons.person_outline, hint: 'Usuário'),
-              InputWidget(
-                icon: Icons.lock_outline,
-                hint: 'Password',
-                obscure: true,
-              ),
+              //InputLoginWidget(
+              //icon: Icons.person_outline,
+              //hint: 'Usuário',
+              //obscure: false,
+              //),
+              //InputLoginWidget(
+              //icon: Icons.lock_outline,
+              //hint: 'Password',
+              //obscure: true,
+              //),
               const SizedBox(height: 30),
-              ButtonWidget(
-                label: 'Acessar',
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/home');
-                },
-                size: Size(double.infinity, 60),
-              ),
               const SizedBox(height: 15),
-              ButtonWidget(
-                label: 'Novo Usuario',
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/register');
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed('/novousuario');
                 },
-                size: Size(double.infinity, 60),
+                child: const Text(
+                  'Novo Usuário',
+                  style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 20),
+                ),
               ),
             ],
           ),

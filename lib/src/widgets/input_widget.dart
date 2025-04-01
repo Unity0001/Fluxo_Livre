@@ -1,51 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class InputWidget extends StatelessWidget {
-  final IconData? icon;
+class InputLoginWidget extends StatelessWidget {
+  final IconData icon;
   final String hint;
   final bool obscure;
-  final TextInputType inputType;
+  final TextInputType type;
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
 
-  const InputWidget({
-    this.icon,
+  const InputLoginWidget({
+    required this.icon,
     required this.hint,
+    required this.controller,
     this.obscure = false,
-    this.inputType = TextInputType.text,
+    this.type = TextInputType.text,
+    this.validator,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    var inputFormatters = <TextInputFormatter>[];
-
-    if (hint.toLowerCase().contains("cpf")) {
-      inputFormatters.add(
-        MaskTextInputFormatter(
-          mask: '###.###.###-##',
-          filter: {"#": RegExp(r'[0-9]')},
-        ),
-      );
-    } else if (obscure) {
-      inputFormatters.add(
-        FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9]')),
-      );
-    }
-
-    return TextField(
-      keyboardType: inputType,
-      inputFormatters: inputFormatters,
+    return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
-        icon: Icon(icon, color: Colors.white),
+        icon: Icon(icon, color: Color(0xFFFFFFFF)),
         hintText: hint,
-        hintStyle: TextStyle(color: Colors.white),
+        hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.pinkAccent),
         ),
       ),
-      style: TextStyle(color: Colors.white),
+      style: TextStyle(color: Color(0xFFFFFFFF)),
       obscureText: obscure,
+      keyboardType: type,
+      validator: validator,
     );
   }
 }

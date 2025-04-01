@@ -158,6 +158,12 @@
       "languageVersion": "3.5"
     },
     {
+      "name": "validatorless",
+      "rootUri": "file:///C:/Users/guilh/AppData/Local/Pub/Cache/hosted/pub.dev/validatorless-1.2.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///C:/Users/guilh/AppData/Local/Pub/Cache/hosted/pub.dev/vector_math-2.1.4",
       "packageUri": "lib/",
@@ -176,7 +182,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-03-22T00:55:37.633451Z",
+  "generated": "2025-04-01T23:00:43.454254Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///C:/flutter/flutter",
